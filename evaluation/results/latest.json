@@ -1,0 +1,594 @@
+{
+    "run_at": "2026-10-16T09:31:44+00:00",
+    "config": {
+        "chat_model": "gemini-3.5-flash-lite",
+        "vision_model": "gemini-3.5-flash-lite",
+        "embedding_model": "gemini-embedding-2",
+        "embedding_dimensions": 768,
+        "top_k": 8,
+        "chunk_size": 2000,
+        "chunk_overlap": 200
+    },
+    "summary": [
+        {
+            "document": "GPO Annual Report 2018",
+            "questions": "3",
+            "retrieval_hit_rate": 1,
+            "mrr": 0.67,
+            "citation_hit_rate": 1,
+            "answer_pass_rate": 1,
+            "fact_recall": 1
+        },
+        {
+            "document": "World Bank Global Economic Prospects June 2026",
+            "questions": "3",
+            "retrieval_hit_rate": 1,
+            "mrr": 1,
+            "citation_hit_rate": 1,
+            "answer_pass_rate": 0.67,
+            "fact_recall": 0.78
+        },
+        {
+            "document": "Apple iMac Environmental Report",
+            "questions": "3",
+            "retrieval_hit_rate": 1,
+            "mrr": 1,
+            "citation_hit_rate": 1,
+            "answer_pass_rate": 1,
+            "fact_recall": 1
+        },
+        {
+            "document": "ALL",
+            "questions": "9",
+            "retrieval_hit_rate": 1,
+            "mrr": 0.89,
+            "citation_hit_rate": 1,
+            "answer_pass_rate": 0.89,
+            "fact_recall": 0.89
+        }
+    ],
+    "results": [
+        {
+            "id": "gpo-1",
+            "document": "GPO Annual Report 2018",
+            "strategy": "baseline",
+            "question": "How many depository libraries did GPO staff visit in FY 2018?",
+            "reference_answer": "GPO staff visited 166 depository libraries in 25 states.",
+            "answer": "In FY 2018, GPO staff visited 166 depository libraries [S2][S3][S4].",
+            "expected_pages": [
+                5,
+                21
+            ],
+            "retrieved_pages": [
+                19,
+                21,
+                21,
+                5,
+                20,
+                20,
+                17,
+                6
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                21,
+                5
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 2,
+            "citation_hit": true,
+            "section_precision": null,
+            "facts": [
+                {
+                    "alternatives": [
+                        "166"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 1,
+            "facts_total": 1,
+            "answer_pass": true,
+            "seconds": 34.5
+        },
+        {
+            "id": "gpo-2",
+            "document": "GPO Annual Report 2018",
+            "strategy": "baseline",
+            "question": "What new digital system replaced FDsys, and when was it fully deployed?",
+            "reference_answer": "govinfo. It came out of beta in December 2017, ran in parallel with FDsys through 2018, and FDsys was scheduled to be completely retired and replaced by govinfo in December 2018.",
+            "answer": "The digital system that replaced FDsys is govinfo [S1][S2][S7]. It was scheduled to be completely retired and replaced by December 2018 [S1][S2][S3][S7].",
+            "expected_pages": [
+                10,
+                22,
+                39
+            ],
+            "retrieved_pages": [
+                22,
+                39,
+                10,
+                22,
+                9,
+                13,
+                8,
+                16
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                22,
+                39,
+                10,
+                8
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": null,
+            "facts": [
+                {
+                    "alternatives": [
+                        "govinfo"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "December 2018"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 2,
+            "facts_total": 2,
+            "answer_pass": true,
+            "seconds": 4.2
+        },
+        {
+            "id": "gpo-3",
+            "document": "GPO Annual Report 2018",
+            "strategy": "baseline",
+            "question": "How much did GPO procure in printing and information products in FY 2018 on behalf of federal agencies?",
+            "reference_answer": "Approximately $375.7 million (84,111 orders); the Director's message rounds this to more than $375 million.",
+            "answer": "GPO procured more than $375 million worth of printing and other information products in FY 2018 on behalf of its Federal agency partners [S3]. More specifically, this work was valued at approximately $375.7 million [S2].",
+            "expected_pages": [
+                5,
+                14,
+                17
+            ],
+            "retrieved_pages": [
+                16,
+                17,
+                5,
+                6,
+                39,
+                5,
+                35,
+                7
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                17,
+                5
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 2,
+            "citation_hit": true,
+            "section_precision": null,
+            "facts": [
+                {
+                    "alternatives": [
+                        "375.7 million",
+                        "375 million"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 1,
+            "facts_total": 1,
+            "answer_pass": true,
+            "seconds": 6.8
+        },
+        {
+            "id": "gep-1",
+            "document": "World Bank Global Economic Prospects June 2026",
+            "strategy": "hierarchical",
+            "question": "What is the growth outlook for South Asia in this report?",
+            "reference_answer": "Growth in SAR is expected to soften to 6.3 percent in 2026 (Middle East conflict: higher energy prices, reduced oil/gas supplies, disrupted remittances and tourism), then pick up to an average of 7 percent per year in 2027-28. India is projected to moderate to 6.6 percent in FY2026/27.",
+            "answer": "Growth in South Asia (SAR) is expected to soften to 6.3 percent in 2026, primarily due to the adverse impacts of the conflict in the Middle East, including higher energy prices, reduced oil and natural gas supplies, and disruptions to tourism and remittances [S1]. \n\nHowever, the growth forecast was marginally upgraded from January due to stronger-than-expected domestic demand and export growth in several economies, supported by improved access to trading partners and lower U.S. tariffs [S1]. As conflict-related disruptions are assumed to wane by the end of the year, growth in SAR is projected to pick up to an average rate of 7 percent per year for 2027–28 [S1].",
+            "expected_pages": [
+                96,
+                97
+            ],
+            "retrieved_pages": [
+                96,
+                98,
+                96,
+                98,
+                97,
+                96,
+                97,
+                97
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                96
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": 1,
+            "facts": [
+                {
+                    "alternatives": [
+                        "6.3"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "7 percent",
+                        "7%"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 2,
+            "facts_total": 2,
+            "answer_pass": true,
+            "seconds": 4.5
+        },
+        {
+            "id": "gep-2",
+            "document": "World Bank Global Economic Prospects June 2026",
+            "strategy": "hierarchical",
+            "question": "What does Chapter 3 say about sovereign debt in developing economies?",
+            "reference_answer": "Rising government debt is a key EMDE challenge: it raises interest rates, debt-service payments and the likelihood of distress. Debt levels are positively and non-linearly associated with sovereign spreads and domestic yields; the rise in EMDE debt-to-GDP since 2010 is associated with increases of about 110 and 30 basis points. Effects are larger with a history of default, low ratings, frontier status, short-term debt reliance and weak governance. EMDE government debt rose from under 40 percent of GDP in 2010 to over 70 percent. Policy: strengthen fiscal positions (revenue mobilization, efficient spending, debt management, domestic debt markets, debt-for-development swaps).",
+            "answer": "Rising government debt in emerging market and developing economies (EMDEs) poses a key challenge because it leads to higher interest rates, higher debt-service payments, and a greater likelihood of debt distress [S1]. \n\n* **Impact on Interest Rates:** Debt levels are positively associated with dollar-denominated sovereign bond spreads and domestic-currency government bond yields [S1]. This relationship is non-linear, meaning the increases in spreads or yields associated with increases in debt-to-GDP ratios become greater the higher the debt-to-GDP ratio is [S1]. \n* **Historical Changes:** Between 2010 and 2024, median EMDE debt rose by 20 percentage points of GDP, which model estimates indicate added 114 basis points to sovereign spreads and 31 basis points to domestic-currency yields [S6]. (Elsewhere noted as roughly 110 and 30 basis points) [S1]. \n* **Vulnerable Economies:** Rising debt leads to even larger increases in interest rates in countries characterized by a history of default, low credit ratings, frontier market status, higher inflation, heavy reliance on short-term debt, and weak governance [S1][S7]. Additionally, the share of low- and middle-income countries either in, or at high risk of, debt distress rose from 26 percent in 2015 to about 50 percent in 2026, with economies in fragile and conflict-affected situations (FCS) becoming particularly vulnerable [S3].\n* **Policy Implications:** The findings highlight the importance of strengthening fiscal positions and public debt structures through measures such as stronger domestic revenue mobilization, more efficient public spending, improved debt management, lengthening bond maturities, supporting domestic debt market development, and debt-for-development swaps [S1][S5].",
+            "expected_pages": [
+                107,
+                108,
+                109,
+                110
+            ],
+            "retrieved_pages": [
+                109,
+                111,
+                110,
+                114,
+                128,
+                112,
+                112,
+                132
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                109,
+                110,
+                128,
+                112
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": 1,
+            "facts": [
+                {
+                    "alternatives": [
+                        "interest rate",
+                        "spreads",
+                        "yields"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "110"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "non-linear",
+                        "nonlinear",
+                        "greater the higher",
+                        "progressively larger"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 3,
+            "facts_total": 3,
+            "answer_pass": true,
+            "seconds": 23.1
+        },
+        {
+            "id": "gep-3",
+            "document": "World Bank Global Economic Prospects June 2026",
+            "strategy": "hierarchical",
+            "question": "According to the executive summary, what are the main risks to the global outlook?",
+            "reference_answer": "Risks are skewed to the downside: renewed escalation of hostilities or prolonged disruptions to commodity flows could raise commodity prices, intensify inflation and food insecurity, trigger financial stress and lower growth; in a severe energy-disruption scenario with financial stress, global growth could fall to 1.3 percent in 2026. Persistent trade policy uncertainty, geopolitical strains and weather-related shocks are also material risks. Upside: broader AI investment and adoption.",
+            "answer": "According to the executive summary, the main risks to the global outlook include:\n\n* A renewed escalation of hostilities or more prolonged disruptions to commodity flows, which could further raise commodity prices, intensify inflationary pressures and food insecurity, trigger financial stress, and lower growth [S1].\n* Persistent trade policy uncertainty [S1].\n* Geopolitical strains [S1].\n* Weather-related shocks [S1].",
+            "expected_pages": [
+                19
+            ],
+            "retrieved_pages": [
+                19,
+                52,
+                29,
+                19,
+                20,
+                27,
+                53,
+                54
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                19
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": 0.38,
+            "facts": [
+                {
+                    "alternatives": [
+                        "downside"
+                    ],
+                    "found": false
+                },
+                {
+                    "alternatives": [
+                        "1.3"
+                    ],
+                    "found": false
+                },
+                {
+                    "alternatives": [
+                        "trade policy"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "hostilities",
+                        "escalation"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 2,
+            "facts_total": 4,
+            "answer_pass": false,
+            "seconds": 3.1
+        },
+        {
+            "id": "apple-1",
+            "document": "Apple iMac Environmental Report",
+            "strategy": "multimodal",
+            "question": "How much less energy does iMac use compared to the ENERGY STAR requirement?",
+            "reference_answer": "iMac uses 58 percent less energy than the ENERGY STAR requirement (footnote 18: based on ENERGY STAR Program Requirements for Computers).",
+            "answer": "iMac uses 58 percent less energy than the requirement for ENERGY STAR [S1][S2].",
+            "expected_pages": [
+                7,
+                12
+            ],
+            "retrieved_pages": [
+                7,
+                12,
+                5,
+                2,
+                12,
+                4,
+                11,
+                10
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "text",
+                "footnote",
+                "text",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                7,
+                12
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": null,
+            "facts": [
+                {
+                    "alternatives": [
+                        "58"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 1,
+            "facts_total": 1,
+            "answer_pass": true,
+            "seconds": 4.9
+        },
+        {
+            "id": "apple-2",
+            "document": "Apple iMac Environmental Report",
+            "strategy": "multimodal",
+            "question": "What is the total carbon footprint of the iMac, and how much of that comes from product use versus manufacturing?",
+            "reference_answer": "Total product footprint is 346 kg CO2e for iMac (two ports) 256GB: production (manufacturing) 50 percent, product use 45 percent, transportation 5 percent, end-of-life <1 percent. The four-port 512GB configuration is 391 kg CO2e.",
+            "answer": "The total product footprint for the iMac (two ports) 256GB is 346 kg CO2e, and the iMac (four ports) 512GB is 391 kg CO2e [S1]. \n\nFor the iMac (two ports) 256GB model:\n* **Product Use:** 45% of the life cycle product emissions come from product use [S1].\n* **Production (Manufacturing):** 50% of the life cycle product emissions come from production [S1].",
+            "expected_pages": [
+                10
+            ],
+            "retrieved_pages": [
+                10,
+                2,
+                9,
+                11,
+                11,
+                10,
+                9,
+                11
+            ],
+            "retrieved_types": [
+                "text",
+                "text",
+                "text",
+                "footnote",
+                "text",
+                "table",
+                "text",
+                "text"
+            ],
+            "cited_pages": [
+                10
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": null,
+            "facts": [
+                {
+                    "alternatives": [
+                        "346"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "45"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "50"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 3,
+            "facts_total": 3,
+            "answer_pass": true,
+            "seconds": 3.2
+        },
+        {
+            "id": "apple-3",
+            "document": "Apple iMac Environmental Report",
+            "strategy": "multimodal",
+            "question": "What material is the iMac stand made from, and what percentage of it is recycled?",
+            "reference_answer": "The stand is made from aluminum, and it is 100 percent recycled aluminum.",
+            "answer": "The iMac stand is made from aluminum [S1][S2][S4], and it is 100 percent recycled [S1][S2][S3][S4].",
+            "expected_pages": [
+                1,
+                2,
+                4
+            ],
+            "retrieved_pages": [
+                4,
+                4,
+                1,
+                2,
+                4,
+                9,
+                6,
+                11
+            ],
+            "retrieved_types": [
+                "text",
+                "figure",
+                "text",
+                "text",
+                "text",
+                "text",
+                "text",
+                "footnote"
+            ],
+            "cited_pages": [
+                4,
+                1,
+                2
+            ],
+            "retrieval_hit": true,
+            "first_relevant_rank": 1,
+            "citation_hit": true,
+            "section_precision": null,
+            "facts": [
+                {
+                    "alternatives": [
+                        "aluminum",
+                        "aluminium"
+                    ],
+                    "found": true
+                },
+                {
+                    "alternatives": [
+                        "100"
+                    ],
+                    "found": true
+                }
+            ],
+            "facts_found": 2,
+            "facts_total": 2,
+            "answer_pass": true,
+            "seconds": 4.7
+        }
+    ]
+}
